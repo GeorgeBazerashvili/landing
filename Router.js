@@ -4,15 +4,6 @@ const User = require("./User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-router.get("/signin", async (req, res) => {
-  try {
-    const user = await User.find({});
-    res.status(200).json({ user: user });
-  } catch (error) {
-    return res.status(400).json({ success: false, message: error.message });
-  }
-});
-
 router.post("/signup", async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
